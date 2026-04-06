@@ -12,27 +12,27 @@ void main() {
   // runApp(const RoutingScreen());
 
   // //프로바이더 패턴1, 단일프로바이더
-  runApp(
-    // ChangeNotifierProvider: 위젯 트리 전체에 상태 공급
-    // create: Provider 인스턴스 생성
-    ChangeNotifierProvider(
-      create: (_) => CounterProvider(),
-      child: const RoutingScreen(),
-    ),
-  );
-
-  //프로바이더 패턴2, 멀티프로바이더
   // runApp(
-  //   // MultiProvider: 여러 개의 Provider를 한 번에 등록
-  //   MultiProvider(
-  //     providers: [
-  //       ChangeNotifierProvider(create: (_) => CounterProvider()),
-  //       ChangeNotifierProvider(create: (_) => FoodController()),
-  //
-  //     ],
+  //   // ChangeNotifierProvider: 위젯 트리 전체에 상태 공급
+  //   // create: Provider 인스턴스 생성
+  //   ChangeNotifierProvider(
+  //     create: (_) => CounterProvider(),
   //     child: const RoutingScreen(),
   //   ),
   // );
+
+  //프로바이더 패턴2, 멀티프로바이더
+  runApp(
+    // MultiProvider: 여러 개의 Provider를 한 번에 등록
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CounterProvider()),
+        ChangeNotifierProvider(create: (_) => FoodController()),
+
+      ],
+      child: const RoutingScreen(),
+    ),
+  );
 
 
 
